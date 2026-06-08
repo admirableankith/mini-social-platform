@@ -96,9 +96,8 @@ if(user) return res.redirect("/login");
             name,
             password:hash
         });
-          let token = jwt.sign({ email: email, userid: user._id }, process.env.JWT_SECRET);           res.cookie("token",token);
-         
-          res.send("registered"); 
+          let token = jwt.sign({ email: email, userid: createdUser._id }, process.env.JWT_SECRET);           
+          res.redirect("/profile");
     })
    })
 }); 
