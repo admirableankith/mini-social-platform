@@ -2,7 +2,8 @@
 
 A lightweight, secure full-stack social media application built with Node.js, Express, and MongoDB. This project demonstrates robust authentication, data relational integrity, and seamless CRUD operations wrapped in a modern UI.
 
-🔗 **Live Demo:** [Paste your Render link here]
+🔗## 🚀 Live Demo
+https://mini-social-platform-fgnt.onrender.com
 
 ---
 
@@ -33,18 +34,16 @@ A lightweight, secure full-stack social media application built with Node.js, Ex
    cd [Your folder name]
 
 2.Install dependencies:
-
     npm install
 
 3.Configure Environment Variables:
-create a .env file in the root directory (use .env.example as a template) and define the following:
+  create a .env file in the root directory (use .env.example as a template) and define the following:
      
      PORT=8080
      MONGO_URI=your_mongodb_connection_string
      JWT_SECRET=your_random_jwt_secret
 
 4.Launch the app
-  
   node app.js
   Open http://localhost:8080 in your browser.
 
