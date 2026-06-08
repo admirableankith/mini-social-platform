@@ -126,13 +126,12 @@ app.get("/logout",(req,res)=>{
     res.redirect("/login"); 
 });
 
-function isLoggedIn(req,res,next){
-    if(req.cookies.token==="") res.redirect("/login");
-    else{
-    let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);        req.user=data;
-        next();
-    }
-};
+function isLoggedIn(req, res, next) {
+    if (!req.cookies.token || req.cookies.token === "") return res.redirect("/login");
+    let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
+    req.user = data;
+    next();
+}
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);
