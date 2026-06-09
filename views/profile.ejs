@@ -14,12 +14,30 @@
             Logout
         </a>
     </div>
-    <h1 class="text-4xl font-semibold mt-4">
-        Hello, <%= user.name %> 👋
-    </h1>
-    <p class="text-zinc-400 mt-2">
+    <div class="flex items-center gap-3">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+    <img
+      class="w-full h-full object-cover"
+      src="/images/uploads/<%= user.profilepic %>"
+      alt="profile"
+    >
+</div>
+        <h3 class="text-4xl "><span class="font-light">Its me</span>  <%= user.name %> 👋</h3>
+    </div>
+    
+  
+
+    <form action="/profile/upload" method="get">
+        <div class="flex gap-3">
+          <p class="text-zinc-400 mt-2 ">
         You can create a new post.
-    </p>
+         </p>
+        <button  class="bg-blue-600 px-1 py-1  rounded-md mt-3 font-medium">add profilepic</button>
+
+        </div>
+        
+   
+    </form>
     <form action="/post" method="POST" class="mt-8">
         <textarea
         name="content"

@@ -8,23 +8,42 @@ const postModel=require("./models/post");
 const cookieParser=require("cookie-parser");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
-
+const crypto=require("crypto");
+const upload=require("./config/multerconfig");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname,"public")));
+ 
 
+app.get("/profile/upload",(req,res)=>{
+    res.render("profileupload");
+})
+
+// console.log(upload);
+// console.log(upload.single);
+
+app.post("/upload",isLoggedIn,upload.single("image"),async (req,res)=>{
+    let user= await userModel.findOne({email:req.user.email});
+    user.profilepic=req.file.filename;
+    await user.save();
+    res.redirect("/profile");
+})
 
 app.get("/login",(req,res)=>{
     // console.log(req.cookies.token);
     res.render("login"); 
 });
 
+
+
 app.get("/",(req,res)=>{
     // console.log(req.cookies.token);
     res.render("index.ejs"); 
 });
+
 
 app.get("/profile", isLoggedIn, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email }).populate("posts");
@@ -132,6 +151,10 @@ function isLoggedIn(req, res, next) {
     req.user = data;
     next();
 }
+
+
+
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);

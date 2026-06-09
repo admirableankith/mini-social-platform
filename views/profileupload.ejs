@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-zinc-950 flex justify-center items-center min-h-screen">
+
+<div class="bg-zinc-900 p-10 rounded-xl w-[450px] border border-zinc-700">
+
+    <h1 class="text-white text-3xl font-semibold mb-8">
+       Upload Profile Picture
+    </h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data"   class="space-y-4">
+
+        <input
+        type="file"
+        name="image"
+        placeholder="Name"
+        class="w-full h-auto" >
+
+        
+        <button
+        class="w-full bg-blue-500 hover:bg-blue-600 py-3 rounded-md text-white font-medium">
+
+            upload file
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
