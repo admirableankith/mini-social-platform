@@ -2,7 +2,7 @@
 
 A lightweight, secure full-stack social media application built with Node.js, Express, and MongoDB. This project demonstrates robust authentication, data relational integrity, and seamless CRUD operations wrapped in a modern UI.
 
-🔗 **Live Demo:** [Paste your Render link here]
+🔗 **Live Demo:** [(https://mini-social-platform-fgnt.onrender.com/)]
 
 ---
 
